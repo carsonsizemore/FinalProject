@@ -7,7 +7,7 @@ async function setup() {
 }
 
 function draw() {
-  background(20, 10, 40);
+  background('#8EE3EF');
   noStroke();
 
   // Slower cycle speed (changed from 0.015 to 0.006)
@@ -40,8 +40,7 @@ function draw() {
         c.x, c.y, c.r
       );
       
-      radialGradient.addColorStop(0, `rgba(255, 255, 113, ${c.alpha / 255 * 0.4})`);
-      radialGradient.addColorStop(0.5, `rgba(231, 97, 30, ${c.alpha / 255 * 0.3})`);
+      radialGradient.addColorStop(0, `rgba(39, 65, 86, ${c.alpha / 255 * 0.4})`);
       radialGradient.addColorStop(1, 'rgba(20, 10, 40, 0)');
 
       drawingContext.fillStyle = radialGradient;
@@ -56,8 +55,7 @@ function draw() {
     width / 2, sunY, 0,
     width / 2, sunY, sunSize
   );
-  mainSunGrad.addColorStop(0, '#ffff71');
-  mainSunGrad.addColorStop(0.5, '#e7611e');
+  mainSunGrad.addColorStop(0, 'rgb(39, 65, 86)');
   mainSunGrad.addColorStop(1, 'rgba(20, 10, 40, 0)');
 
   drawingContext.fillStyle = mainSunGrad;
@@ -66,15 +64,15 @@ function draw() {
  let a = map(mouseX, 0, width, 0, 255);
   drawingContext.fillStyle = '#140a28';
   drawingContext.letterSpacing = '-5px'
-  fill(20, 10, 40);
+  fill('#8EE3EF');
   textFont('Impact');
   textSize(102);
   textStyle(BOLD);
-  text ('OUR FLORA', width / 2, 500);
+  text ('OUR FLORA', width / 2, 325);
 
 
   drawingContext.letterSpacing = '0px'
-  fill(20, 10, 40, a);
+  fill(142, 227, 239, a);
   textFont('Helvetica');
   textSize(20);
   textStyle(BOLD);
@@ -83,6 +81,9 @@ function draw() {
     textSize(25);
     text("STAND UP FOR ITSELF", width / 2, mouseY + 30);
 
-  
-  image(img, 0, 250, 500, 350);
+ 
+  image(img, 0, 250, 1000, 350);
+  image(img, -400, 250, 1000, 350);
+  image(img, 0, 400, 1000, 350);
+  image(img, -400, 450, 1000, 350);
 }

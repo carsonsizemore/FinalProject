@@ -3,11 +3,11 @@ let sunCircles = [];
 
 async function setup() {
   createCanvas(400, 600);
-  img = await loadImage('deer.png');
+  img = await loadImage('animal.png');
 }
 
 function draw() {
-  background(20, 10, 40);
+  background('#e7611e');
   noStroke();
 
   // Slower cycle speed (changed from 0.015 to 0.006)
@@ -40,9 +40,8 @@ function draw() {
         c.x, c.y, c.r
       );
       
-      radialGradient.addColorStop(0, `rgba(255, 255, 113, ${c.alpha / 255 * 0.4})`);
-      radialGradient.addColorStop(0.5, `rgba(231, 97, 30, ${c.alpha / 255 * 0.3})`);
-      radialGradient.addColorStop(1, 'rgba(20, 10, 40, 0)');
+      radialGradient.addColorStop(0, `rgba(142, 227, 239, ${c.alpha / 255 * 0.4})`);
+      radialGradient.addColorStop(1, 'rgba(255, 255, 113, 0)');
 
       drawingContext.fillStyle = radialGradient;
       circle(c.x, c.y, c.r * 2);
@@ -56,25 +55,24 @@ function draw() {
     width / 2, sunY, 0,
     width / 2, sunY, sunSize
   );
-  mainSunGrad.addColorStop(0, '#ffff71');
-  mainSunGrad.addColorStop(0.5, '#e7611e');
-  mainSunGrad.addColorStop(1, 'rgba(20, 10, 40, 0)');
+  mainSunGrad.addColorStop(0, 'rgb(142, 227, 239)');
+  mainSunGrad.addColorStop(1, 'rgba(255, 255, 113, 0)');
 
   drawingContext.fillStyle = mainSunGrad;
   circle(width / 2, sunY, sunSize * 2);
 
  let a = map(mouseX, 0, width, 0, 255);
-  drawingContext.fillStyle = '#140a28';
+  drawingContext.fillStyle = '#e7611e';
   drawingContext.letterSpacing = '-4px'
-  fill(20, 10, 40);
+  fill('#e7611e');
   textFont('Impact');
   textSize(100);
   textStyle(BOLD);
-  text ('OUR FAUNA', width / 2, 300);
+  text ('OUR FAUNA', width / 2, 350);
 
 
   drawingContext.letterSpacing = '0px'
-  fill(20, 10, 40, a);
+  fill(231, 97, 30, a);
   textFont('Helvetica');
   textSize(20);
   textStyle(BOLD);
@@ -84,5 +82,5 @@ function draw() {
     text("STAND UP FOR ITSELF", width / 2, mouseY + 30);
 
   
-  image(img, -50, 250, 500, 350);
+  image(img, -100, 250, 550, 350);
 }
